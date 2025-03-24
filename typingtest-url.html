@@ -28,7 +28,7 @@
             const hits = gcpm * 5;
             const chksum = `${gcpm}13`;
 
-            const url = `https://www.typingtest.com/certificate.php?acc=100&nwpm=${wpm}&gwpm=${wpm}&ncpm=${gcpm}&gcpm=${gcpm}&dur=300&time=300&chksum=${chksum}&unit=wpm&kh=998&td=null&err=0&hits=${hits}&mobile=0`;
+            const url = `https://www.typingtest.com/certificate.php?acc=100&nwpm=${wpm}&gwpm=${wpm}&ncpm=${gcpm}&gcpm=${gcpm}&dur=300&time=300&chksum=${chksum}&unit=wpm&kh=998&td=null&err=0&hits=${hits}&textfile=certificate.txt&mobile=0`;
 
             navigator.clipboard.writeText(url).then(() => {
                 document.getElementById('output').innerHTML = `Copied to clipboard: <a href="${url}" target="_blank">${url}</a>`;
