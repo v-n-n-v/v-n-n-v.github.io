@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TypingTest URL Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 2rem; }
+        input { padding: 8px; font-size: 1rem; }
+        button { padding: 8px 12px; font-size: 1rem; cursor: pointer; }
+        .url-output { margin-top: 1rem; word-break: break-all; }
+    </style>
+</head>
+<body>
+    <h3>Generate TypingTest Certificate URL</h3>
+    <input type="number" id="wpm" placeholder="Enter Desired WPM">
+    <button onclick="generateURL()">Generate URL</button>
+    <div class="url-output" id="output"></div>
+
+    <script>
+        function generateURL() {
+            const wpm = parseInt(document.getElementById('wpm').value);
+            if (!wpm || wpm <= 0) {
+                alert('Enter a valid WPM value.');
+                return;
+            }
+
+            const gcpm = wpm * 5;
+            const hits = gcpm * 5;
+            const chksum = `${gcpm}13`;
+
+            const url = `https://www.typingtest.com/certificate.php?acc=100&nwpm=${wpm}&gwpm=${wpm}&ncpm=${gcpm}&gcpm=${gcpm}&dur=300&time=300&chksum=${chksum}&unit=wpm&kh=998&td=null&err=0&hits=${hits}&mobile=0`;
+
+            document.getElementById('output').innerHTML = `<a href="${url}" target="_blank">${url}</a>`;
+        }
+    </script>
+</body>
+</html>
